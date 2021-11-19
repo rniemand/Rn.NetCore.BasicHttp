@@ -10,11 +10,11 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
     <PackageReference Include="NLog" Version="4.7.12" />
     <PackageReference Include="NLog.Extensions.Logging" Version="1.7.4" />
-    <PackageReference Include="Rn.NetCore.Common" Version="5.0.1.152" />
+    <PackageReference Include="Rn.NetCore.Common" Version="5.0.2.100" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Rn.NetCore.BasicHttpService\Rn.NetCore.BasicHttpService.csproj" />
+    <ProjectReference Include="..\Rn.NetCore.BasicHttp\Rn.NetCore.BasicHttp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

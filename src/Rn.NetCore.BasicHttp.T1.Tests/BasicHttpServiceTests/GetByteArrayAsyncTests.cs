@@ -1,20 +1,20 @@
-﻿using System.Net.Http;
+﻿using System;
 using System.Threading.Tasks;
 using NSubstitute;
 using NUnit.Framework;
-using Rn.NetCore.BasicHttpService.Factories;
-using Rn.NetCore.BasicHttpService.Handlers;
-using Rn.NetCore.BasicHttpService.Wrappers;
+using Rn.NetCore.BasicHttp.Factories;
+using Rn.NetCore.BasicHttp.Handlers;
+using Rn.NetCore.BasicHttp.Wrappers;
 
-namespace Rn.NetCore.BasicHttpService.T1.Tests.BasicHttpServiceTests
+namespace Rn.NetCore.BasicHttp.T1.Tests.BasicHttpServiceTests
 {
   [TestFixture]
-  public class GetUrlAsyncTests
+  public class GetByteArrayAsyncTests
   {
     private const string Url = "http://google.com/";
 
     [Test]
-    public async Task GetUrlAsync_GivenCalled_ShouldCallSendAsync()
+    public async Task GetByteArrayAsync_GivenCalled_ShouldCallGetByteArrayAsync()
     {
       // arrange
       var httpClientFactory = Substitute.For<IHttpClientFactory>();
@@ -29,42 +29,38 @@ namespace Rn.NetCore.BasicHttpService.T1.Tests.BasicHttpServiceTests
       );
 
       // act
-      await httpService.GetUrlAsync(Url);
+      await httpService.GetByteArrayAsync(Url);
 
       // assert
-      await httpClient.Received(1).SendAsync(Arg.Is<HttpRequestMessage>(m =>
-        m.Method == HttpMethod.Get &&
-        m.RequestUri.AbsoluteUri == Url
-      ));
+      await httpClient.Received(1).GetByteArrayAsync(Url);
     }
 
     [Test]
-    public async Task GetUrlAsync_GivenCalled_ShouldReturnResponseMessage()
+    public async Task GetByteArrayAsync_GivenCalled_ShouldReturnResponse()
     {
       // arrange
       var httpClientFactory = Substitute.For<IHttpClientFactory>();
       var httpClient = Substitute.For<IHttpClient>();
-      var responseMessage = new HttpResponseMessage();
+      var responseBytes = Array.Empty<byte>();
+
 
       httpClientFactory
         .GetHttpClient(Arg.Any<TimeoutHandler>())
         .Returns(httpClient);
 
-      httpClient
-        .SendAsync(Arg.Any<HttpRequestMessage>())
-        .Returns(responseMessage);
+      httpClient.GetByteArrayAsync(Url).Returns(responseBytes);
 
       var httpService = TestHelper.GetService(
         httpClientFactory: httpClientFactory
       );
 
       // act
-      var response = await httpService.GetUrlAsync(Url);
+      var response = await httpService.GetByteArrayAsync(Url);
 
       // assert
       Assert.IsNotNull(response);
-      Assert.IsInstanceOf<HttpResponseMessage>(response);
-      Assert.AreEqual(responseMessage, response);
+      Assert.IsInstanceOf<byte[]>(response);
+      Assert.AreEqual(responseBytes, response);
     }
   }
 }

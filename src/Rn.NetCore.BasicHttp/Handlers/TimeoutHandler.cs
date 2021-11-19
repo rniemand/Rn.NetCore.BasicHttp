@@ -2,9 +2,9 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Rn.NetCore.BasicHttpService.Extensions;
+using Rn.NetCore.BasicHttp.Extensions;
 
-namespace Rn.NetCore.BasicHttpService.Handlers
+namespace Rn.NetCore.BasicHttp.Handlers
 {
   // https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/
   // https://thomaslevesque.com/2018/02/25/better-timeout-handling-with-httpclient/
