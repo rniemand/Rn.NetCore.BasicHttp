@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Rn.NetCore.Common" Version="5.0.1.152" />
+    <PackageReference Include="Rn.NetCore.Common" Version="5.0.2.100" />
   </ItemGroup>
 
 </Project>
