@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Rn.NetCore.BasicHttpService\Rn.NetCore.BasicHttpService.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="BasicHttpServiceTests\" />
   </ItemGroup>
 
