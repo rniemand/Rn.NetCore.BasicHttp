@@ -1,6 +1,9 @@
 ﻿using System.Threading;
 using NSubstitute;
 using NUnit.Framework;
+using Rn.NetCore.BasicHttp.Factories;
+using Rn.NetCore.BasicHttp.Handlers;
+using Rn.NetCore.BasicHttp.Wrappers;
 
 namespace Rn.NetCore.BasicHttp.T1.Tests.BasicHttpServiceTests
 {

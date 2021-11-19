@@ -21,4 +21,8 @@
     <Folder Include="BasicHttpServiceTests\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Rn.NetCore.BasicHttp\Rn.NetCore.BasicHttp.csproj" />
+  </ItemGroup>
+
 </Project>

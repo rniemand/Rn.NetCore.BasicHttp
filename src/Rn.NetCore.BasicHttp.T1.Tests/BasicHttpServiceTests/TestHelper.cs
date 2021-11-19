@@ -1,4 +1,6 @@
 ﻿using NSubstitute;
+using Rn.NetCore.BasicHttp.Factories;
+using Rn.NetCore.Common.Logging;
 
 namespace Rn.NetCore.BasicHttp.T1.Tests.BasicHttpServiceTests
 {
