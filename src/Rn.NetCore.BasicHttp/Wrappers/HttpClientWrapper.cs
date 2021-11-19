@@ -4,9 +4,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
-using Rn.NetCore.BasicHttpService.Handlers;
+using Rn.NetCore.BasicHttp.Handlers;
 
-namespace Rn.NetCore.BasicHttpService.Wrappers
+namespace Rn.NetCore.BasicHttp.Wrappers
 {
   public interface IHttpClient
   {

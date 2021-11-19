@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 
-namespace Rn.NetCore.BasicHttpService.Extensions
+namespace Rn.NetCore.BasicHttp.Extensions
 {
   public static class HttpRequestMessageExtensions
   {

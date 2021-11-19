@@ -4,12 +4,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using NSubstitute;
 using NUnit.Framework;
-using Rn.NetCore.BasicHttpService.Extensions;
-using Rn.NetCore.BasicHttpService.Factories;
-using Rn.NetCore.BasicHttpService.Handlers;
-using Rn.NetCore.BasicHttpService.Wrappers;
 
-namespace Rn.NetCore.BasicHttpService.T1.Tests.BasicHttpServiceTests
+namespace Rn.NetCore.BasicHttp.T1.Tests.BasicHttpServiceTests
 {
   [TestFixture]
   public class SendAsyncTests

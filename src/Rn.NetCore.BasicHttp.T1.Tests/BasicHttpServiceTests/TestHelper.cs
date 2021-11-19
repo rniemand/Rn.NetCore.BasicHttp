@@ -1,8 +1,6 @@
 ﻿using NSubstitute;
-using Rn.NetCore.BasicHttpService.Factories;
-using Rn.NetCore.Common.Logging;
 
-namespace Rn.NetCore.BasicHttpService.T1.Tests.BasicHttpServiceTests
+namespace Rn.NetCore.BasicHttp.T1.Tests.BasicHttpServiceTests
 {
   public static class TestHelper
   {

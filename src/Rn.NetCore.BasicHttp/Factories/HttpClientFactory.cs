@@ -1,9 +1,9 @@
 ﻿using System.Net;
 using System.Net.Http;
-using Rn.NetCore.BasicHttpService.Handlers;
-using Rn.NetCore.BasicHttpService.Wrappers;
+using Rn.NetCore.BasicHttp.Handlers;
+using Rn.NetCore.BasicHttp.Wrappers;
 
-namespace Rn.NetCore.BasicHttpService.Factories
+namespace Rn.NetCore.BasicHttp.Factories
 {
   public interface IHttpClientFactory
   {
