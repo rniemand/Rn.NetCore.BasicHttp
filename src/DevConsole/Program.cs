@@ -17,7 +17,7 @@ namespace DevConsole
     {
       ConfigureDI();
 
-      _logger.Info("Hello World");
+      _logger.LogInformation("Hello World");
       Console.WriteLine("Hello World!");
     }
 

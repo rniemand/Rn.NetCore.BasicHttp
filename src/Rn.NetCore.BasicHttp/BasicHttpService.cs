@@ -41,7 +41,7 @@ namespace Rn.NetCore.BasicHttp
 
       _httpClient = httpClientFactory.GetHttpClient(handler);
       _httpClient.Timeout = Timeout.InfiniteTimeSpan;
-      _logger.Debug("New instance created");
+      _logger.LogDebug("New instance created");
     }
 
 
