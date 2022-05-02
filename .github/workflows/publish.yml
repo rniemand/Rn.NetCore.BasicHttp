@@ -56,7 +56,7 @@ jobs:
           $rootDir         = Join-Path $env:GITHUB_WORKSPACE "\";
           $artifactsDir    = Join-Path $rootDir "artifacts\";
           $sqReportPaths   = ($artifactsDir + "t1-coverage/**/coverage.opencover.xml");
-          $projectName     = $PROJECT_NAME;
+          $projectName     = ${{ env.PROJECT_NAME }};
           
           $sonarQubeParams = @(
             "/k:`"${{ secrets.SONAR_PROJECT }}`"",
