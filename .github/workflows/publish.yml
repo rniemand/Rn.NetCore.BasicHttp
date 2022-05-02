@@ -17,15 +17,22 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-dotnet@v1
-        name: Install .net 5.x
-        with:
-          dotnet-version: '5.0.x'
+#       - uses: actions/setup-dotnet@v1
+#         name: Install .net 5.x
+#         with:
+#           dotnet-version: '5.0.x'
 
-      - uses: actions/setup-dotnet@v1
-        name: Install .net 6.x
+#       - uses: actions/setup-dotnet@v1
+#         name: Install .net 6.x
+#         with:
+#           dotnet-version: '6.0.x'
+          
+      - uses: actions/setup-dotnet@v2
+        name: Install .net 5/6.x
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: | 
+            5.0.x
+            6.0.x
 
       - name: Cache SonarQube packages
         uses: actions/cache@v1
