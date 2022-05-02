@@ -8,10 +8,10 @@ jobs:
     name: Build and Publish
     runs-on: windows-latest
     steps:
-      # - name: Set up JDK 11
-      #   uses: actions/setup-java@v1
-      #   with:
-      #     java-version: 1.11
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
 
       - uses: actions/checkout@v2
         with:
@@ -39,51 +39,51 @@ jobs:
         with:
           dotnet-version: 6.0.x
 
-      # - name: Cache SonarQube packages
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: ~\sonar\cache
-      #     key: ${{ runner.os }}-sonar
-      #     restore-keys: ${{ runner.os }}-sonar
+      - name: Cache SonarQube packages
+        uses: actions/cache@v1
+        with:
+          path: ~\sonar\cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
 
-      # - name: Cache SonarQube scanner
-      #   id: cache-sonar-scanner
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: .\.sonar\scanner
-      #     key: ${{ runner.os }}-sonar-scanner
-      #     restore-keys: ${{ runner.os }}-sonar-scanner
+      - name: Cache SonarQube scanner
+        id: cache-sonar-scanner
+        uses: actions/cache@v1
+        with:
+          path: .\.sonar\scanner
+          key: ${{ runner.os }}-sonar-scanner
+          restore-keys: ${{ runner.os }}-sonar-scanner
 
-      # - name: Install SonarQube scanner
-      #   if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-      #   shell: powershell
-      #   run: |
-      #     New-Item -Path .\.sonar\scanner -ItemType Directory
-      #     dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+      - name: Install SonarQube scanner
+        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+        shell: powershell
+        run: |
+          New-Item -Path .\.sonar\scanner -ItemType Directory
+          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
-      # - name: Build and analyze
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   shell: powershell
-      #   run: |
-      #     $rootDir         = Join-Path $env:GITHUB_WORKSPACE "\";
-      #     $artifactsDir    = Join-Path $rootDir "artifacts\";
-      #     $sqReportPaths   = ($artifactsDir + "t1-coverage/**/coverage.opencover.xml");
-      #     $projectName     = "Rn.NetCore.BasicHttp";
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: powershell
+        run: |
+          $rootDir         = Join-Path $env:GITHUB_WORKSPACE "\";
+          $artifactsDir    = Join-Path $rootDir "artifacts\";
+          $sqReportPaths   = ($artifactsDir + "t1-coverage/**/coverage.opencover.xml");
+          $projectName     = "Rn.NetCore.BasicHttp";
           
-      #     $sonarQubeParams = @(
-      #       "/k:`"${{ secrets.SONAR_PROJECT }}`"",
-      #       "/d:sonar.host.url=`"${{ secrets.SONAR_HOST_URL }}`"",
-      #       "/d:sonar.login=`"${{ secrets.SONAR_TOKEN }}`"",
-      #       "/d:sonar.cs.opencover.reportsPaths=`"$sqReportPaths`""
-      #     );
+          $sonarQubeParams = @(
+            "/k:`"${{ secrets.SONAR_PROJECT }}`"",
+            "/d:sonar.host.url=`"${{ secrets.SONAR_HOST_URL }}`"",
+            "/d:sonar.login=`"${{ secrets.SONAR_TOKEN }}`"",
+            "/d:sonar.cs.opencover.reportsPaths=`"$sqReportPaths`""
+          );
           
-      #     #Invoke-Expression (".\.sonar\scanner\dotnet-sonarscanner begin $sonarQubeParams");
-      #     Invoke-Expression (".\.github\ci-build.ps1 -project `"$projectName`"");
-      #     Invoke-Expression (".\.github\ci-test.ps1 -frameworkVersion `"net6.0`"");
-      #     #Invoke-Expression (".\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login=`"${{ secrets.SONAR_TOKEN }}`"");
+          Invoke-Expression (".\.sonar\scanner\dotnet-sonarscanner begin $sonarQubeParams");
+          Invoke-Expression (".\.github\ci-build.ps1 -project `"$projectName`"");
+          Invoke-Expression (".\.github\ci-test.ps1 -frameworkVersion `"net6.0`"");
+          Invoke-Expression (".\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login=`"${{ secrets.SONAR_TOKEN }}`"");
           
-      #     # Fin.
+          # Fin.
 
 #       - name: Publish Rn.NetCore.BasicHttp
 #         id: publish_nuget
@@ -98,11 +98,11 @@ jobs:
       #     PROJECT_FILE_PATH: src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj
       #     NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
 
-      - name: Restore
-        run: dotnet restore src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj
+      # - name: Restore
+      #   run: dotnet restore src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj
 
-      - name: Build
-        run: dotnet build src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj --no-restore --configuration Release
+      # - name: Build
+      #   run: dotnet build src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj --no-restore --configuration Release
       
       - name: Pack
         run: dotnet pack src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj --no-build --configuration Release --include-symbols -p:SymbolPackageFormat=snupkg -o .
