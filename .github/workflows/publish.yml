@@ -73,10 +73,15 @@ jobs:
           
           # Fin.
 
-      - name: Publish Rn.NetCore.BasicHttp
-        id: publish_nuget
-        uses: rohith/publish-nuget@v2
+#       - name: Publish Rn.NetCore.BasicHttp
+#         id: publish_nuget
+#         uses: rohith/publish-nuget@v2
+#         with:
+#           PROJECT_FILE_PATH: src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj
+#           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+          
+      - name: Publish NuGet
+        uses: brandedoutcast/publish-nuget@v2.5.5
         with:
           PROJECT_FILE_PATH: src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-          
