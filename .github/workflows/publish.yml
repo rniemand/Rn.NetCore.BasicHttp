@@ -80,7 +80,7 @@ jobs:
           
           Invoke-Expression (".\.sonar\scanner\dotnet-sonarscanner begin $sonarQubeParams");
           Invoke-Expression (".\.github\ci-build.ps1 -project `"$projectName`"");
-          Invoke-Expression (".\.github\ci-test.ps1 -frameworkVersion `"net6.0`"");
+          Invoke-Expression (".\.github\ci-test.ps1");
           Invoke-Expression (".\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login=`"${{ secrets.SONAR_TOKEN }}`"");
           
           # Fin.
@@ -104,8 +104,8 @@ jobs:
       # - name: Build
       #   run: dotnet build src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj --no-restore --configuration Release
       
-      - name: Pack
-        run: dotnet pack src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj --no-build --configuration Release --include-symbols -p:SymbolPackageFormat=snupkg -o .
+      # - name: Pack
+      #   run: dotnet pack src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj --no-build --configuration Release --include-symbols -p:SymbolPackageFormat=snupkg -o .
 
       - name: Package
         run: dotnet pack -c Release -o . src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj

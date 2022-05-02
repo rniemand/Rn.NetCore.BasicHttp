@@ -11,7 +11,7 @@ param (
   [string] $configuration = "Release",
 
   [Parameter(Mandatory=$false)]
-  [string] $frameworkVersion = "net5.0"
+  [string] $frameworkVersion = "net6.0"
 )
 
 $rootDir               = Join-Path $rootDir "\..\";
