@@ -56,7 +56,7 @@ jobs:
           $rootDir         = Join-Path $env:GITHUB_WORKSPACE "\";
           $artifactsDir    = Join-Path $rootDir "artifacts\";
           $sqReportPaths   = ($artifactsDir + "t1-coverage/**/coverage.opencover.xml");
-          $projectName     = ${{ env.PROJECT_NAME }};
+          $projectName     = "${{ env.PROJECT_NAME }}";
           
           $sonarQubeParams = @(
             "/k:`"${{ secrets.SONAR_PROJECT }}`"",
@@ -73,7 +73,7 @@ jobs:
           # Fin.
           
       - name: Package
-        run: dotnet pack -c Release -o . src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj
+        run: dotnet pack -c Release -o . src/${{ env.PROJECT_NAME }}/${{ env.PROJECT_NAME }}.csproj
 
       - name: Publish
         run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
