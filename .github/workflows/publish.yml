@@ -98,7 +98,17 @@ jobs:
       #     PROJECT_FILE_PATH: src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj
       #     NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
 
+      - name: Restore
+        run: dotnet restore src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj
+
+      - name: Build
+        run: dotnet build src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj --no-restore --configuration Release
+      
+      - name: Pack
+        run: dotnet pack src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj --no-build --configuration Release --include-symbols -p:SymbolPackageFormat=snupkg -o .
+
       - name: Package
         run: dotnet pack -c Release -o . src/Rn.NetCore.BasicHttp/Rn.NetCore.BasicHttp.csproj
+
       - name: Publish
-        run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+        run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
