@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevConsole", "DevConsole\De
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rn.NetCore.BasicHttp", "Rn.NetCore.BasicHttp\Rn.NetCore.BasicHttp.csproj", "{90D7CBF1-A064-4A44-A310-BD3706EE06DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rn.NetCore.BasicHttp.T1.Tests", "Rn.NetCore.BasicHttp.T1.Tests\Rn.NetCore.BasicHttp.T1.Tests.csproj", "{C266FD65-4DFE-452A-A2A8-9DFAB9B9A402}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{EFDD3F7C-E191-425A-ACA0-2A0FD0EC540D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rn.NetCore.BasicHttp.T1.Tests", "..\test\Rn.NetCore.BasicHttp.T1.Tests\Rn.NetCore.BasicHttp.T1.Tests.csproj", "{5968BF47-1279-40CE-94BA-D190CBE10047}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,17 +27,17 @@ Global
 		{90D7CBF1-A064-4A44-A310-BD3706EE06DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90D7CBF1-A064-4A44-A310-BD3706EE06DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90D7CBF1-A064-4A44-A310-BD3706EE06DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C266FD65-4DFE-452A-A2A8-9DFAB9B9A402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C266FD65-4DFE-452A-A2A8-9DFAB9B9A402}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C266FD65-4DFE-452A-A2A8-9DFAB9B9A402}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C266FD65-4DFE-452A-A2A8-9DFAB9B9A402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5968BF47-1279-40CE-94BA-D190CBE10047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5968BF47-1279-40CE-94BA-D190CBE10047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5968BF47-1279-40CE-94BA-D190CBE10047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5968BF47-1279-40CE-94BA-D190CBE10047}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{90D7CBF1-A064-4A44-A310-BD3706EE06DB} = {3C73F8DB-124D-49A5-9654-81F5A7B1FD35}
-		{C266FD65-4DFE-452A-A2A8-9DFAB9B9A402} = {3C73F8DB-124D-49A5-9654-81F5A7B1FD35}
+		{5968BF47-1279-40CE-94BA-D190CBE10047} = {EFDD3F7C-E191-425A-ACA0-2A0FD0EC540D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {50E5BB2F-EECC-42E1-BDD8-116D61B7D846}
