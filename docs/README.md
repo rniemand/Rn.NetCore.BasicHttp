@@ -1,11 +1,9 @@
 [Home](/README.md) / Docs
 
 # Documentation
-Starter documentation for `Rn.NetCore.BasicHttp`.
-
-More to come...
+Nothing to see here.
 
 <!--(Rn.BuildScriptHelper){
 	"version": "1.0.106",
-	"replace": true
+	"replace": false
 }(END)-->
