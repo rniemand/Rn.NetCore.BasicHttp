@@ -12,7 +12,17 @@
     <Authors>Richard Niemand</Authors>
     <NeutralLanguage>en</NeutralLanguage>
     <Nullable>annotations</Nullable>
+    <PackageProjectUrl>https://github.com/rniemand/Rn.NetCore.BasicHttp</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/rniemand/Rn.NetCore.BasicHttp</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Rn.NetCore.Common" Version="6.0.1.100" />
