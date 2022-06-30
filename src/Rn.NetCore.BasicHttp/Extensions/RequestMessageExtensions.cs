@@ -12,6 +12,7 @@ public static class RequestMessageExtensions
     if (request == null)
       throw new ArgumentNullException(nameof(request));
 
+    // TODO: [RequestMessageExtensions.GetTimeout] (REPLACE) Make use of options
     if (request.Properties.TryGetValue(TimeoutPropertyKey, out var value) && value is TimeSpan timeout)
       return timeout;
 
