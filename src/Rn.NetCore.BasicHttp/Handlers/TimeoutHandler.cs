@@ -35,7 +35,7 @@ public class TimeoutHandler : DelegatingHandler
     }
   }
 
-  private CancellationTokenSource GetCancellationTokenSource(HttpRequestMessage request, CancellationToken cancellationToken)
+  private CancellationTokenSource? GetCancellationTokenSource(HttpRequestMessage request, CancellationToken cancellationToken)
   {
     var timeout = request.GetTimeout() ?? DefaultTimeout;
 

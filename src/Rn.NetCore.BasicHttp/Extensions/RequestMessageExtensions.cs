@@ -3,7 +3,7 @@ using System.Net.Http;
 
 namespace Rn.NetCore.BasicHttp;
 
-public static class HttpRequestMessageExtensions
+public static class RequestMessageExtensions
 {
   private const string TimeoutPropertyKey = "RequestTimeout";
 
