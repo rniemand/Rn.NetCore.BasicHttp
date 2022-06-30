@@ -2,10 +2,6 @@ using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Rn.NetCore.BasicHttp.Extensions;
-using Rn.NetCore.BasicHttp.Factories;
-using Rn.NetCore.BasicHttp.Handlers;
-using Rn.NetCore.BasicHttp.Wrappers;
 using Rn.NetCore.Common.Logging;
 
 namespace Rn.NetCore.BasicHttp;
