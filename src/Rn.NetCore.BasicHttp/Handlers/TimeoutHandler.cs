@@ -2,9 +2,8 @@ using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Rn.NetCore.BasicHttp.Extensions;
 
-namespace Rn.NetCore.BasicHttp.Handlers;
+namespace Rn.NetCore.BasicHttp;
 // https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/
 // https://thomaslevesque.com/2018/02/25/better-timeout-handling-with-httpclient/
 
@@ -36,7 +35,7 @@ public class TimeoutHandler : DelegatingHandler
     }
   }
 
-  private CancellationTokenSource GetCancellationTokenSource(HttpRequestMessage request, CancellationToken cancellationToken)
+  private CancellationTokenSource? GetCancellationTokenSource(HttpRequestMessage request, CancellationToken cancellationToken)
   {
     var timeout = request.GetTimeout() ?? DefaultTimeout;
 

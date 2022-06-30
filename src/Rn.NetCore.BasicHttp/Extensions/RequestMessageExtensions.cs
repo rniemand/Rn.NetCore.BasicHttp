@@ -1,9 +1,9 @@
 using System;
 using System.Net.Http;
 
-namespace Rn.NetCore.BasicHttp.Extensions;
+namespace Rn.NetCore.BasicHttp;
 
-public static class HttpRequestMessageExtensions
+public static class RequestMessageExtensions
 {
   private const string TimeoutPropertyKey = "RequestTimeout";
 
@@ -12,6 +12,7 @@ public static class HttpRequestMessageExtensions
     if (request == null)
       throw new ArgumentNullException(nameof(request));
 
+    // TODO: [RequestMessageExtensions.GetTimeout] (REPLACE) Make use of options
     if (request.Properties.TryGetValue(TimeoutPropertyKey, out var value) && value is TimeSpan timeout)
       return timeout;
 
