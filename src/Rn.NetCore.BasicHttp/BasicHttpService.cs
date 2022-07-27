@@ -10,7 +10,9 @@ public interface IBasicHttpService
   Task<HttpResponseMessage> GetUrlAsync(string url);
 
   Task<HttpResponseMessage> SendAsync(HttpRequestMessage message, int timeout, CancellationToken cancellationToken);
+  Task<HttpResponseMessage> SendAsync(HttpRequestMessage message, int timeout);
   Task<HttpResponseMessage> SendAsync(HttpRequestMessage message, CancellationToken cancellationToken);
+  Task<HttpResponseMessage> SendAsync(HttpRequestMessage message);
 
   Task<byte[]> GetByteArrayAsync(string requestUri);
 }
@@ -44,8 +46,14 @@ public class BasicHttpService : IBasicHttpService
     return await _httpClient.SendAsync(message, cancellationToken);
   }
 
+  public Task<HttpResponseMessage> SendAsync(HttpRequestMessage message, int timeout) =>
+    SendAsync(message, timeout, CancellationToken.None);
+
   public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage message, CancellationToken cancellationToken)
     => await SendAsync(message, 0, cancellationToken);
+
+  public Task<HttpResponseMessage> SendAsync(HttpRequestMessage message) =>
+    SendAsync(message, CancellationToken.None);
 
   public async Task<byte[]> GetByteArrayAsync(string requestUri)
     => await _httpClient.GetByteArrayAsync(requestUri);

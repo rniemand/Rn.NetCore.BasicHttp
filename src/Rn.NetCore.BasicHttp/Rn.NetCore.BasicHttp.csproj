@@ -5,7 +5,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <AssemblyName>Rn.NetCore.BasicHttp</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>6.0.1.101</Version>
+    <Version>6.0.1.102</Version>
     <Company>Richard Niemand</Company>
     <Description>HTTP Client Abstraction for projects that need it</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

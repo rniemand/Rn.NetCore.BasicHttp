@@ -25,8 +25,7 @@ public class SendAsyncTests
       .Returns(httpClient);
 
     var httpService = TestHelper.GetService(
-      httpClientFactory: httpClientFactory
-    );
+      httpClientFactory: httpClientFactory);
 
     // act
     await httpService.SendAsync(requestMessage);
@@ -49,8 +48,7 @@ public class SendAsyncTests
       .Returns(httpClient);
 
     var httpService = TestHelper.GetService(
-      httpClientFactory: httpClientFactory
-    );
+      httpClientFactory: httpClientFactory);
 
     // act
     await httpService.SendAsync(requestMessage, cancellationToken);
@@ -72,8 +70,7 @@ public class SendAsyncTests
       .Returns(httpClient);
 
     var httpService = TestHelper.GetService(
-      httpClientFactory: httpClientFactory
-    );
+      httpClientFactory: httpClientFactory);
 
     // act
     await httpService.SendAsync(requestMessage, 120);
@@ -102,8 +99,7 @@ public class SendAsyncTests
       .Returns(responseMessage);
 
     var httpService = TestHelper.GetService(
-      httpClientFactory: httpClientFactory
-    );
+      httpClientFactory: httpClientFactory);
 
     // act
     var response = await httpService.SendAsync(requestMessage);
